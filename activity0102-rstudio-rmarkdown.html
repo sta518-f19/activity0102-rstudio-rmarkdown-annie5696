@@ -371,16 +371,21 @@ summary {
 
 <div id="load-packages" class="section level3">
 <h3>Load packages</h3>
-<p>library(tidyverse) library(datasauRus) ### Exercise 1</p>
+<pre class="r"><code>library(tidyverse) 
+library(datasauRus)</code></pre>
+<p>datasaurus_dozen %&gt;% count(dataset) %&gt;% print(13)</p>
+</div>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
 <p>(Type your answer to Exercise 1 here. This exercise does not require any R code.)</p>
 </div>
 <div id="exercise-2" class="section level3">
 <h3>Exercise 2</h3>
 <p>(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)</p>
-<p>First let’s plot the data in the dino dataset: dino_data &lt;- datasaurus_dozen %&gt;% filter(dataset == “dino”)</p>
-<p>ggplot(data = dino_data, mapping = aes(x = x, y = y)) + geom_point() And next calculate the correlation between x and y in this dataset: dino_data %&gt;% summarize(r = cor(x, y)) ### Exercise 3</p>
+<p>##First let’s plot the data in the dino dataset: dino_data &lt;- datasaurus_dozen %&gt;% filter(dataset == “dino”)</p>
+<p>ggplot(data = dino_data, mapping = aes(x = x, y = y)) + geom_point() #And next calculate the correlation between x and y in this dataset: dino_data %&gt;% summarize(r = cor(x, y)) ### Exercise 3</p>
 <p>(Add code and narrative as needed. Note that the R chunks are labeled with plot-star and cor-star to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, clean up the narrative by removing these instructions.)</p>
-<p>Blah blah blah…</p>
+<p>##Blah blah blah…</p>
 <p>I’m some text, you should replace me with more meaningful text…</p>
 </div>
 <div id="exercise-4" class="section level3">

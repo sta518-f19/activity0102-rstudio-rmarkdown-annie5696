@@ -2,7 +2,13 @@
 title: "Activity 1.2 - RStudio and R Markdown"
 author: "anisha"
 date: "8/26/2019"
-output: html_document
+output: 
+  html_document: 
+    fig_height: 9
+    fig_width: 15
+    highlight: pygments
+    theme: united
+    toc_depth: 4
 ---
 
 ### Load packages
@@ -25,8 +31,6 @@ print(13)
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
-
 ##First let's plot the data in the dino dataset:
 
  ```{r plot-dino, fig.height=3, fig.width=6}
@@ -39,6 +43,8 @@ print(13)
 ```
   
 #And next calculate the correlation between x and y in this dataset:
+### summarizes helps to get the summary of the data###
+
 ```{r cor-dino}
 
 dino_data %>%
@@ -47,8 +53,6 @@ summarize(r = cor(x, y))
 ```
 
 ### Exercise 3
-
-(Add code and narrative as needed. Note that the R chunks are labeled with plot-star and cor-star to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, clean up the narrative by removing these instructions.)
 
  ```{r plot-star, fig.height=3, fig.width=6}
  
@@ -68,8 +72,6 @@ summarize(r = cor(x, y))
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
-
 ```{r plot-circle, fig.height=3, fig.width=6}
  
   circle_data <- datasaurus_dozen %>%
@@ -85,9 +87,26 @@ circle_data %>%
 summarize(r = cor(x, y))
 
 ```
+### There is not much difference between in corelation between dino and circle ###
 
-### There is not much difference between in corelationbetween dino and circle ###
 
 ### Exercise 5
+### ggplot helps to declare the input data frame for a graphic and to specify the set of plot ###
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter r or use the Insert chunk button above, green C+.)
+```{r}
+ggplot(data = datasaurus_dozen, aes(x=x, y=y, color = dataset)) + geom_point() + facet_wrap(~dataset, ncol=3) + theme(legend.position = "none")
+
+```
+
+
+```{r}
+datasaurus_dozen %>%
+group_by(dataset) %>%
+summarize(r=cor(x,y)) %>%
+print(13)
+
+```
+
+
+
+
